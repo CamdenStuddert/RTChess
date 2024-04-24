@@ -9,18 +9,36 @@
 /* Begin PBXBuildFile section */
 		0486FBA42BD8847C00A36FF5 /* RTChessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBA32BD8847C00A36FF5 /* RTChessApp.swift */; };
 		0486FBA62BD8847C00A36FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBA52BD8847C00A36FF5 /* ContentView.swift */; };
-		0486FBA82BD8847C00A36FF5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBA72BD8847C00A36FF5 /* Item.swift */; };
 		0486FBAA2BD8847D00A36FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0486FBA92BD8847D00A36FF5 /* Assets.xcassets */; };
 		0486FBAD2BD8847D00A36FF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0486FBAC2BD8847D00A36FF5 /* Preview Assets.xcassets */; };
+		6226CC952BD88D6E0090EB21 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CC942BD88D6E0090EB21 /* Piece.swift */; };
+		6226CC972BD88DCD0090EB21 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CC962BD88DCD0090EB21 /* Board.swift */; };
+		6226CC992BD88FDF0090EB21 /* Knight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CC982BD88FDF0090EB21 /* Knight.swift */; };
+		6226CC9B2BD88FE80090EB21 /* Pawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CC9A2BD88FE80090EB21 /* Pawn.swift */; };
+		6226CC9D2BD890010090EB21 /* Rook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CC9C2BD890010090EB21 /* Rook.swift */; };
+		6226CC9F2BD890060090EB21 /* Bishop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CC9E2BD890060090EB21 /* Bishop.swift */; };
+		6226CCA12BD8900B0090EB21 /* Queen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CCA02BD8900B0090EB21 /* Queen.swift */; };
+		6226CCA32BD8900F0090EB21 /* King.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CCA22BD8900F0090EB21 /* King.swift */; };
+		6226CCA52BD890290090EB21 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CCA42BD890290090EB21 /* Game.swift */; };
+		6230C41C2BD893CB005509BD /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6230C41B2BD893CB005509BD /* Team.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0486FBA02BD8847C00A36FF5 /* RTChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0486FBA32BD8847C00A36FF5 /* RTChessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTChessApp.swift; sourceTree = "<group>"; };
 		0486FBA52BD8847C00A36FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0486FBA72BD8847C00A36FF5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0486FBA92BD8847D00A36FF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0486FBAC2BD8847D00A36FF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6226CC942BD88D6E0090EB21 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		6226CC962BD88DCD0090EB21 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		6226CC982BD88FDF0090EB21 /* Knight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knight.swift; sourceTree = "<group>"; };
+		6226CC9A2BD88FE80090EB21 /* Pawn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pawn.swift; sourceTree = "<group>"; };
+		6226CC9C2BD890010090EB21 /* Rook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rook.swift; sourceTree = "<group>"; };
+		6226CC9E2BD890060090EB21 /* Bishop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bishop.swift; sourceTree = "<group>"; };
+		6226CCA02BD8900B0090EB21 /* Queen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queen.swift; sourceTree = "<group>"; };
+		6226CCA22BD8900F0090EB21 /* King.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = King.swift; sourceTree = "<group>"; };
+		6226CCA42BD890290090EB21 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		6230C41B2BD893CB005509BD /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +71,10 @@
 		0486FBA22BD8847C00A36FF5 /* RTChess */ = {
 			isa = PBXGroup;
 			children = (
+				6226CC922BD88C7A0090EB21 /* Model */,
+				6226CC932BD88C7F0090EB21 /* Game */,
+				6226CC912BD88C740090EB21 /* UI */,
 				0486FBA32BD8847C00A36FF5 /* RTChessApp.swift */,
-				0486FBA52BD8847C00A36FF5 /* ContentView.swift */,
-				0486FBA72BD8847C00A36FF5 /* Item.swift */,
 				0486FBA92BD8847D00A36FF5 /* Assets.xcassets */,
 				0486FBAB2BD8847D00A36FF5 /* Preview Content */,
 			);
@@ -68,6 +87,38 @@
 				0486FBAC2BD8847D00A36FF5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6226CC912BD88C740090EB21 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0486FBA52BD8847C00A36FF5 /* ContentView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6226CC922BD88C7A0090EB21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6226CC942BD88D6E0090EB21 /* Piece.swift */,
+				6226CC962BD88DCD0090EB21 /* Board.swift */,
+				6226CC982BD88FDF0090EB21 /* Knight.swift */,
+				6226CC9A2BD88FE80090EB21 /* Pawn.swift */,
+				6226CC9C2BD890010090EB21 /* Rook.swift */,
+				6226CC9E2BD890060090EB21 /* Bishop.swift */,
+				6226CCA02BD8900B0090EB21 /* Queen.swift */,
+				6226CCA22BD8900F0090EB21 /* King.swift */,
+				6230C41B2BD893CB005509BD /* Team.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6226CC932BD88C7F0090EB21 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				6226CCA42BD890290090EB21 /* Game.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +191,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6230C41C2BD893CB005509BD /* Team.swift in Sources */,
 				0486FBA62BD8847C00A36FF5 /* ContentView.swift in Sources */,
-				0486FBA82BD8847C00A36FF5 /* Item.swift in Sources */,
+				6226CC9D2BD890010090EB21 /* Rook.swift in Sources */,
+				6226CC9B2BD88FE80090EB21 /* Pawn.swift in Sources */,
+				6226CCA12BD8900B0090EB21 /* Queen.swift in Sources */,
+				6226CCA32BD8900F0090EB21 /* King.swift in Sources */,
 				0486FBA42BD8847C00A36FF5 /* RTChessApp.swift in Sources */,
+				6226CCA52BD890290090EB21 /* Game.swift in Sources */,
+				6226CC9F2BD890060090EB21 /* Bishop.swift in Sources */,
+				6226CC972BD88DCD0090EB21 /* Board.swift in Sources */,
+				6226CC952BD88D6E0090EB21 /* Piece.swift in Sources */,
+				6226CC992BD88FDF0090EB21 /* Knight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RTChess/Preview Content\"";
-				DEVELOPMENT_TEAM = 78CBY8U92Y;
+				DEVELOPMENT_TEAM = CN9BXLUCHZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -284,6 +344,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -291,6 +352,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Camden.RTChess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -305,7 +370,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RTChess/Preview Content\"";
-				DEVELOPMENT_TEAM = 78CBY8U92Y;
+				DEVELOPMENT_TEAM = CN9BXLUCHZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -313,6 +378,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,6 +386,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Camden.RTChess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
