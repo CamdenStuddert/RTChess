@@ -1,15 +1,8 @@
-//
-//  ContentView.swift
-//  RTChess
-//
-//  Created by Camden Studdert on 4/23/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     
-    
+//    let cellSize: CGFloat = 40
     
     @EnvironmentObject var game: Game
     
@@ -31,13 +24,22 @@ struct ContentView: View {
                     let color = (y + x) % 2 == 0 ? Color.white : Color.black
                     context.fill(path, with: .color(color))
                     
+                    if y == 6 {
+                            context.draw(Image("White Pawn"), in: CGRect(
+                                x: CGFloat(x) * cellSize,
+                                y: CGFloat(y) * cellSize,
+                                width: cellSize,
+                                height: cellSize))
+                    }
+                    
                 }
                 
             }
-            
-            
         }
         .background(Color.gray)
+        .onTapGesture { location in
+            print(location)
+        }
     }
 }
 
