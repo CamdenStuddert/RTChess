@@ -1,9 +1,15 @@
 import Foundation
 
 struct Pawn: Piece {
+    var position: CGPoint
     var team: Team
     
-    func getAvailableMoves(board: Board, from position: (x: Int, y: Int)) {
+    init(_ team: Team, position: CGPoint) {
+        self.team = team
+        self.position = position
+    }
+    
+    func getAvailableMoves(board: Board) {
         
     }
 }
