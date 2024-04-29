@@ -16,6 +16,28 @@ class Game: ObservableObject {
             board.pieces.append(whitePawn)
             let blackPawn = Pawn(.black, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
             board.pieces.append(blackPawn)
+            let whiteRook1 = Rook(.white, position: CGPoint(x: Board.cellSize * Double(0), y: Board.cellSize * 7))
+            board.pieces.append(whiteRook1)
+            let whiteRook2 = Rook(.white, position: CGPoint(x: Board.cellSize * Double(7), y: Board.cellSize * 7))
+            board.pieces.append(whiteRook2)
+//            let blackRook = Rook(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
+//            board.pieces.append(blackRook)
+//            let whiteKnight = Knight(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
+//            board.pieces.append(whiteKnight)
+//            let blackKnight = Knight(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
+//            board.pieces.append(blackKnight)
+//            let whiteBishop = Bishop(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
+//            board.pieces.append(whiteBishop)
+//            let blackBishop = Bishop(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
+//            board.pieces.append(blackBishop)
+//            let whiteQueen = Queen(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
+//            board.pieces.append(whiteQueen)
+//            let blackQueen = Queen(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
+//            board.pieces.append(blackQueen)
+//            let whiteKing = King(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
+//            board.pieces.append(whiteKing)
+//            let blackKing = King(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
+//            board.pieces.append(blackKing)
         }
         
         updater = CADisplayLink(target: self, selector: #selector(update))
@@ -24,11 +46,11 @@ class Game: ObservableObject {
         
     }
     
-    =
+    
     
     @objc
     func update() {
-        board.pieces[0].position.y -= 1
+    
     }
     
 }
