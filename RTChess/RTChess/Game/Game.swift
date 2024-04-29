@@ -24,30 +24,44 @@ class Game: ObservableObject {
         board.pieces.append(whiteRook1)
         let whiteRook2 = Rook(.white, position: CGPoint(x: Board.cellSize * Double(7), y: Board.cellSize * 7))
         board.pieces.append(whiteRook2)
+        
+        
         let blackRook1 = Rook(.black, position: CGPoint(x: Board.cellSize * Double(0), y: Board.cellSize * 0))
         board.pieces.append(blackRook1)
         let blackRook2 = Rook(.black, position: CGPoint(x: Board.cellSize * Double(7), y: Board.cellSize * 0))
         board.pieces.append(blackRook2)
+        
+        
         let whiteKnight1 = Knight(.white, position: CGPoint(x: Board.cellSize * Double(1), y: Board.cellSize * 7))
         board.pieces.append(whiteKnight1)
         let whiteKnight2 = Knight(.white, position: CGPoint(x: Board.cellSize * Double(6), y: Board.cellSize * 7))
         board.pieces.append(whiteKnight2)
+        
+        
         let blackKnight1 = Knight(.black, position: CGPoint(x: Board.cellSize * Double(1), y: Board.cellSize * 0))
         board.pieces.append(blackKnight1)
         let blackKnight2 = Knight(.black, position: CGPoint(x: Board.cellSize * Double(6), y: Board.cellSize * 0))
         board.pieces.append(blackKnight2)
+        
+        
         let whiteBishop1 = Bishop(.white, position: CGPoint(x: Board.cellSize * Double(2), y: Board.cellSize * 7))
         board.pieces.append(whiteBishop1)
         let whiteBishop2 = Bishop(.white, position: CGPoint(x: Board.cellSize * Double(5), y: Board.cellSize * 7))
         board.pieces.append(whiteBishop2)
+        
+        
         let blackBishop1 = Bishop(.black, position: CGPoint(x: Board.cellSize * Double(2), y: Board.cellSize * 0))
         board.pieces.append(blackBishop1)
         let blackBishop2 = Bishop(.black, position: CGPoint(x: Board.cellSize * Double(5), y: Board.cellSize * 0))
         board.pieces.append(blackBishop2)
+        
+        
         let whiteQueen = Queen(.white, position: CGPoint(x: Board.cellSize * Double(3), y: Board.cellSize * 7))
         board.pieces.append(whiteQueen)
         let blackQueen = Queen(.black, position: CGPoint(x: Board.cellSize * Double(3), y: Board.cellSize * 0))
         board.pieces.append(blackQueen)
+        
+        
         //            let whiteKing = King(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
         //            board.pieces.append(whiteKing)
         //            let blackKing = King(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
