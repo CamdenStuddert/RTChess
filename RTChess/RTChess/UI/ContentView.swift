@@ -58,7 +58,6 @@ struct ContentView: View {
         .padding()
         .background(Color.white)
         .onTapGesture { location in
-            
         }
         
     }
