@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HostJoinView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Host Game")
+        Text("Join Game")
     }
 }
 

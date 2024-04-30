@@ -77,7 +77,7 @@ class Game: ObservableObject {
     
     @objc
     func update() {
-    
+        
     }
     
 }
