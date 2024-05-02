@@ -15,6 +15,33 @@ struct Rook: Piece {
     }
     
     func getAvailableMoves(board: Board) -> [(x: Int, y: Int)] {
+        let location = board.getLocation(at: position)
+        
+        if team == .white {
+            if location.y == 7 && location.x == 0 || location.y == 7 && location.x == 7 {
+                return [
+                    (x: location.x,
+                    y: location.y - 1),
+                ]
+            } else if location.y > 0 {
+                return [
+                    (x: location.x,
+                    y: location.y - 1)
+                ]
+            }
+        } else {
+            if location.y == 1 {
+                return [
+                    (x: location.x,
+                    y: location.y + 1)
+                ]
+            } else if location.y < Board.cells-1 || location.y > Board.cells+1 {
+                return [
+                    (x: location.x,
+                    y: location.y + 1)
+                ]
+            }
+        }
         return []
     }
     
