@@ -8,7 +8,8 @@ struct RTChessApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+//            HomeView()
+            GameView()
                 .environmentObject(game)
         }
     }

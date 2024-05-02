@@ -24,6 +24,7 @@
 		6226CCA32BD8900F0090EB21 /* King.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CCA22BD8900F0090EB21 /* King.swift */; };
 		6226CCA52BD890290090EB21 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CCA42BD890290090EB21 /* Game.swift */; };
 		6230C41C2BD893CB005509BD /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6230C41B2BD893CB005509BD /* Team.swift */; };
+		6267D0752BE3274F00F120FC /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6267D0742BE3274F00F120FC /* Vector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		6226CCA22BD8900F0090EB21 /* King.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = King.swift; sourceTree = "<group>"; };
 		6226CCA42BD890290090EB21 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		6230C41B2BD893CB005509BD /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		6267D0742BE3274F00F120FC /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		0486FBA22BD8847C00A36FF5 /* RTChess */ = {
 			isa = PBXGroup;
 			children = (
+				6267D0732BE3274400F120FC /* Geometry */,
 				6226CC922BD88C7A0090EB21 /* Model */,
 				6226CC932BD88C7F0090EB21 /* Game */,
 				6226CC912BD88C740090EB21 /* UI */,
@@ -128,6 +131,14 @@
 				6226CCA42BD890290090EB21 /* Game.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		6267D0732BE3274400F120FC /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				6267D0742BE3274F00F120FC /* Vector.swift */,
+			);
+			path = Geometry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +221,7 @@
 				0486FBB62BE02B9300A36FF5 /* HostJoinView.swift in Sources */,
 				6226CCA32BD8900F0090EB21 /* King.swift in Sources */,
 				0486FBA42BD8847C00A36FF5 /* RTChessApp.swift in Sources */,
+				6267D0752BE3274F00F120FC /* Vector.swift in Sources */,
 				6226CCA52BD890290090EB21 /* Game.swift in Sources */,
 				6226CC9F2BD890060090EB21 /* Bishop.swift in Sources */,
 				6226CC972BD88DCD0090EB21 /* Board.swift in Sources */,

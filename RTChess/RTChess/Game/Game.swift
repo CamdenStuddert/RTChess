@@ -4,6 +4,7 @@ import QuartzCore
 class Game: ObservableObject {
     
     @Published var board: Board
+    @Published var selected: Piece? = nil
     
     var updater: CADisplayLink = CADisplayLink()
 
@@ -73,10 +74,50 @@ class Game: ObservableObject {
         
     }
     
-    
+    func select(as position: CGPoint) {
+        print(board.getLocation(at: position))
+        for piece in board.pieces {
+            if position.x > piece.position.x &&
+                position.x < piece.position.x + Board.pieceSize &&
+                position.y > piece.position.y &&
+                position.y < piece.position.y + Board.pieceSize {
+                
+                selected = piece
+                return
+                
+            }
+        }
+        
+        if let selected, let index = board.pieces.firstIndex(where: { $0.id == selected.id}) {
+            board.pieces[index].target = position
+        }
+        
+    }
     
     @objc
     func update() {
+        
+        for index in board.pieces.indices {
+            let piece = board.pieces[index]
+            
+            if let target = piece.target {
+                
+                let delta = Vector(x: target.x - piece.position.x, y: target.y - piece.position.y)
+                
+                if delta.magnitude < piece.speed {
+                    board.pieces[index].position = target
+                    board.pieces[index].target = nil
+                    
+                    continue
+                }
+                
+                let change = delta.unit * piece.speed
+                
+                board.pieces[index].position.x += change.x
+                board.pieces[index].position.y += change.y
+            }
+            
+        }
         
     }
     
