@@ -18,11 +18,11 @@ struct Rook: Piece {
         let location = board.getLocation(at: position)
         
         if team == .white {
-            if location.y == 7 && location.x == 0 || location.y == 7 && location.x == 7 {
-                return [
-                    (x: location.x,
-                    y: location.y - 1),
-                ]
+            if location.x < Board.cells-1 && location.x >= 0 && location.y < Board.cells-1 && location.y >= 0{
+                for knightLocation in location.x...Board.cells {
+                    
+                }
+                return []
             } else if location.y > 0 {
                 return [
                     (x: location.x,
