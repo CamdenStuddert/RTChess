@@ -14,6 +14,7 @@
 		0486FBB42BE008A000A36FF5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBB32BE008A000A36FF5 /* HomeView.swift */; };
 		0486FBB62BE02B9300A36FF5 /* HostJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBB52BE02B9300A36FF5 /* HostJoinView.swift */; };
 		0486FBB82BE02BAB00A36FF5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBB72BE02BAB00A36FF5 /* SettingsView.swift */; };
+		0486FBBA2BE97AFB00A36FF5 /* Requirements.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0486FBB92BE97AFB00A36FF5 /* Requirements.txt */; };
 		6226CC952BD88D6E0090EB21 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CC942BD88D6E0090EB21 /* Piece.swift */; };
 		6226CC972BD88DCD0090EB21 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CC962BD88DCD0090EB21 /* Board.swift */; };
 		6226CC992BD88FDF0090EB21 /* Knight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226CC982BD88FDF0090EB21 /* Knight.swift */; };
@@ -36,6 +37,7 @@
 		0486FBB32BE008A000A36FF5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0486FBB52BE02B9300A36FF5 /* HostJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostJoinView.swift; sourceTree = "<group>"; };
 		0486FBB72BE02BAB00A36FF5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0486FBB92BE97AFB00A36FF5 /* Requirements.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Requirements.txt; sourceTree = "<group>"; };
 		6226CC942BD88D6E0090EB21 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		6226CC962BD88DCD0090EB21 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		6226CC982BD88FDF0090EB21 /* Knight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knight.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				0486FBA32BD8847C00A36FF5 /* RTChessApp.swift */,
 				0486FBA92BD8847D00A36FF5 /* Assets.xcassets */,
 				0486FBAB2BD8847D00A36FF5 /* Preview Content */,
+				0486FBB92BE97AFB00A36FF5 /* Requirements.txt */,
 			);
 			path = RTChess;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				0486FBAD2BD8847D00A36FF5 /* Preview Assets.xcassets in Resources */,
 				0486FBAA2BD8847D00A36FF5 /* Assets.xcassets in Resources */,
+				0486FBBA2BE97AFB00A36FF5 /* Requirements.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

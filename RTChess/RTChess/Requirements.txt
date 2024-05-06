@@ -1,0 +1,56 @@
+Requirements
+
+Pawns:
+    Move Speed: 1
+    Can move forward
+    Can only make attack move diagnolly
+    If Pawn gets to end of board it regenerates all health
+    If Pawn gets to end of board its movement speed increases by 1
+    If Pawn gets to end of board it can change to a new chosen piece
+Kings:
+    Move Speed: 1
+    Can move in any direction by 1 tile
+    Can make an attack move in any direction by 1
+    ?
+    Discuss how to checkmate with corbin
+    ?
+Rooks:
+    Move Speed: 2
+    Can move any direction horizontally
+    Can move any direction vertically
+    Can attack any direction horizontally and vertically
+Bishops:
+    Move Speed: 2
+    Can move any direction diagnolly of piece
+    Can attack any direction diagnolly
+Queens
+    Move Speed: 2
+    Can move any direction horizontally
+    Can move any direction vertically
+    Can move any direction diagnolly
+    Can attack from all movement paths
+Knights:
+    Move speed: 3
+    Can move any direction in an L shape
+    Can attack in any L shape
+Movement:
+    Movement Points:
+        ?The movement point maximum is 10?
+        ?You get points for kill?
+        Pawns cost 2 points
+        All back row except Queen cost 3 points
+        Queen costs 4 points
+        Can not move without proper movement points
+        ?Movement Points regenerate after x amount of time?
+        ?Getting a kill gives movement points?
+    Each piece can only maneuver in its proper path
+Health:
+    3 hits of health
+    Getting a direct hit should kill the piece dealing 3 hits of health
+    Getting an indirect hit should take of one piece of health
+    If both pieces get a direct hit the one that was moved first will get the kill but still lose health
+    If pawns get to end of the board they regenerate full health
+
+
+    
+    
