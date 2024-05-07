@@ -8,7 +8,7 @@ struct Queen: Piece {
     var target: CGPoint? = nil
     
     var team: Team
-        
+    
     init(_ team: Team, position: CGPoint) {
         self.team = team
         self.position = position

@@ -39,7 +39,7 @@ struct Rook: Piece {
                 moves.append(.available(x: move.x, y: move.y))
             }
         }
-        outer: for y in (location.y+1)..<Board.cells {
+        outer: for y in (location.y+1)..<Board.cells-1 {
             let move = (x: location.x, y: y)
             for piece in board.pieces {
                 if (piece.target == nil && piece.location == move) ||
@@ -75,7 +75,7 @@ struct Rook: Piece {
                 moves.append(.available(x: move.x, y: move.y))
             }
         }
-        outer: for x in (location.x+1)..<Board.cells {
+        outer: for x in (location.x+1)..<Board.cells-1 {
             let move = (x: x, y: location.y)
             for piece in board.pieces {
                 if (piece.target == nil && piece.location == move) ||
