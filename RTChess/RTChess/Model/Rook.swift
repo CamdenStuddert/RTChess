@@ -13,10 +13,14 @@ struct Rook: Piece {
         self.team = team
         self.position = position
     }
-    
+        
     func getAvailableMoves(board: Board) -> [Move] {
         if target != nil {return []}
         
+        return Self.getRookMoves(board: board, position: position, team: team)
+    }
+    
+    static func getRookMoves(board: Board, position: CGPoint, team: Team) -> [Move] {
         let location = Board.getLocation(at: position)
         var moves: [Move]  = []
         
@@ -39,7 +43,7 @@ struct Rook: Piece {
                 moves.append(.available(x: move.x, y: move.y))
             }
         }
-        outer: for y in (location.y+1)..<Board.cells-1 {
+        outer: for y in (location.y+1)..<Board.cells {
             let move = (x: location.x, y: y)
             for piece in board.pieces {
                 if (piece.target == nil && piece.location == move) ||
@@ -48,11 +52,11 @@ struct Rook: Piece {
                     if piece.team != team {
                         moves.append(.attack(x: move.x, y: move.y))
                     }
-
+                    
                     break outer
                 }
             }
-
+            
             moves.append(.available(x: move.x, y: move.y))
         }
         
@@ -75,7 +79,7 @@ struct Rook: Piece {
                 moves.append(.available(x: move.x, y: move.y))
             }
         }
-        outer: for x in (location.x+1)..<Board.cells-1 {
+        outer: for x in (location.x+1)..<Board.cells {
             let move = (x: x, y: location.y)
             for piece in board.pieces {
                 if (piece.target == nil && piece.location == move) ||
@@ -92,8 +96,7 @@ struct Rook: Piece {
             moves.append(.available(x: move.x, y: move.y))
         }
 
-        
         return moves
     }
-    
+
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 struct Queen: Piece {
-    let speed: CGFloat = 1
+    let speed: CGFloat = 10
     
     let id = UUID()
     var position: CGPoint
@@ -15,6 +15,6 @@ struct Queen: Piece {
     }
     
     func getAvailableMoves(board: Board) -> [Move] {
-        return []
+        return Bishop.getBishopMoves(board: board, position: position, team: team) + Rook.getRookMoves(board: board, position: position, team: team)
     }
 }
