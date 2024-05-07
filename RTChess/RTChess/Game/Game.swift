@@ -4,7 +4,7 @@ import QuartzCore
 class Game: ObservableObject {
     
     @Published var board: Board
-    @Published var selected: Piece? = nil
+    @Published var selected: UUID? = nil
     
     var updater: CADisplayLink = CADisplayLink()
 
@@ -75,21 +75,27 @@ class Game: ObservableObject {
     }
     
     func select(as position: CGPoint) {
-        print(board.getLocation(at: position))
+        
         for piece in board.pieces {
             if position.x > piece.position.x &&
                 position.x < piece.position.x + Board.pieceSize &&
                 position.y > piece.position.y &&
                 position.y < piece.position.y + Board.pieceSize {
                 
-                selected = piece
+                selected = piece.id
                 return
                 
             }
         }
         
-        if let selected, let index = board.pieces.firstIndex(where: { $0.id == selected.id}) {
-            board.pieces[index].target = position
+        if let selected, let index = board.getPieceIndexWith(id: selected) {
+            
+            let location = Board.getLocation(at: position)
+            if board.pieces[index].getAvailableMoves(board: board).contains(where: { $0.x == location.x && $0.y == location.y }) {
+                board.pieces[index].target = CGPoint(x: Double(location.x) * Board.cellSize, y: Double(location.y) * Board.cellSize)
+                self.selected = nil
+            }
+            
         }
         
     }

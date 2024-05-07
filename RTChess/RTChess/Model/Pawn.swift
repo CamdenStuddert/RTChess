@@ -14,34 +14,34 @@ struct Pawn: Piece {
         self.position = position
     }
     
-    func getAvailableMoves(board: Board) -> [(x: Int, y: Int)] {
-        let location = board.getLocation(at: position)
+    func getAvailableMoves(board: Board) -> [Move] {
+        let location = Board.getLocation(at: position)
         
         if team == .white {
             if location.y == 6 {
                 return [
-                    (x: location.x,
+                    .available(x: location.x,
                     y: location.y - 1),
-                    (x: location.x,
+                    .available(x: location.x,
                     y: location.y - 2)
                 ]
             } else if location.y > 0 {
                 return [
-                    (x: location.x,
+                    .available(x: location.x,
                     y: location.y - 1)
                 ]
             }
         } else {
             if location.y == 1 {
                 return [
-                    (x: location.x,
+                    .available(x: location.x,
                     y: location.y + 1),
-                    (x: location.x,
+                    .available(x: location.x,
                     y: location.y + 2)
                 ]
             } else if location.y < Board.cells-1 {
                 return [
-                    (x: location.x,
+                    .available(x: location.x,
                     y: location.y + 1)
                 ]
             }

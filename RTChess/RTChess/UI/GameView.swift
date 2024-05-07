@@ -56,7 +56,7 @@ struct GameView: View {
                             size: CGSize(width: imageSize, height: imageSize))
                     )
                     
-                    if game.selected?.id == piece.id {
+                    if game.selected == piece.id {
                         
                         context.stroke(
                             RoundedRectangle(cornerRadius: 10)
@@ -72,8 +72,13 @@ struct GameView: View {
                                 height: cellSize)
                             )
                             
-                            let color = Color.green.opacity(0.3)
+                            var color: Color
+                            switch move {
+                                case .attack: color = Color.red.opacity(0.3)
+                                case .available: color = Color.green.opacity(0.3)
+                            }
                             context.fill(path, with: .color(color))
+
                         }
                         
                     }

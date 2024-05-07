@@ -11,6 +11,16 @@ protocol Piece {
     var position: CGPoint { get set }
     var target: CGPoint? { get set }
 
-    func getAvailableMoves(board: Board) -> [(x: Int, y: Int)]
+    func getAvailableMoves(board: Board) -> [Move]
     
+}
+
+extension Piece {
+    var location: (x: Int, y: Int) {
+        return Board.getLocation(at: position)
+    }
+    var targetLocation: (x: Int, y: Int)? {
+        guard let target else { return nil }
+        return Board.getLocation(at: target)
+    }
 }

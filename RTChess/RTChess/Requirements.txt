@@ -43,6 +43,7 @@ Movement:
         Can not move without proper movement points
         ?Movement Points regenerate after x amount of time?
         ?Getting a kill gives movement points?
+        moving farther away costs less points
     Each piece can only maneuver in its proper path
 Health:
     3 hits of health

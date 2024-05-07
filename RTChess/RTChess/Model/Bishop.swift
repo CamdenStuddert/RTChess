@@ -15,7 +15,7 @@ struct Bishop: Piece {
         self.position = position
     }
     
-    func getAvailableMoves(board: Board) -> [(x: Int, y: Int)] {
+    func getAvailableMoves(board: Board) -> [Move] {
         return []
     }
 }
