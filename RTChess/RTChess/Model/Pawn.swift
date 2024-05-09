@@ -19,30 +19,51 @@ struct Pawn: Piece {
         
         if team == .white {
             if location.y == 6 {
-                return [
+                var moves: [Move] = []
+                let noAttacks: [Move] = [
                     .available(x: location.x,
                     y: location.y - 1),
                     .available(x: location.x,
                     y: location.y - 2)
                 ]
+                let attacks: [Move] = [
+                    .attack(x: location.x + 1, y: location.y - 1),
+                    .attack(x: location.x - 1, y: location.y - 1)
+                ]
+                
             } else if location.y > 0 {
-                return [
+                var moves: [Move] = []
+                let noAttacks: [Move] = [
                     .available(x: location.x,
                     y: location.y - 1)
+                ]
+                let attacks: [Move] = [
+                    .attack(x: location.x + 1, y: location.y - 1),
+                    .attack(x: location.x - 1, y: location.y - 1)
                 ]
             }
         } else {
             if location.y == 1 {
-                return [
+                var moves: [Move] = []
+                let noAttacks: [Move] = [
                     .available(x: location.x,
                     y: location.y + 1),
                     .available(x: location.x,
                     y: location.y + 2)
                 ]
+                let attacks: [Move] = [
+                    .attack(x: location.x + 1, y: location.y + 1),
+                    .attack(x: location.x - 1, y: location.y + 1)
+                ]
             } else if location.y < Board.cells-1 {
-                return [
+                var moves: [Move] = []
+                let noAttacks: [Move] = [
                     .available(x: location.x,
                     y: location.y + 1)
+                ]
+                let attacks: [Move] = [
+                    .attack(x: location.x + 1, y: location.y + 1),
+                    .attack(x: location.x - 1, y: location.y + 1)
                 ]
             }
         }

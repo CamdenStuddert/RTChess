@@ -63,10 +63,10 @@ class Game: ObservableObject {
         board.pieces.append(blackQueen)
         
         
-        //            let whiteKing = King(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
-        //            board.pieces.append(whiteKing)
-        //            let blackKing = King(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
-        //            board.pieces.append(blackKing)
+        let whiteKing = King(.white, position: CGPoint(x: Board.cellSize * Double(4), y: Board.cellSize * 7))
+        board.pieces.append(whiteKing)
+        let blackKing = King(.black, position: CGPoint(x: Board.cellSize * Double(4), y: Board.cellSize * 0))
+        board.pieces.append(blackKing)
         
         updater = CADisplayLink(target: self, selector: #selector(update))
         updater.preferredFrameRateRange = CAFrameRateRange(minimum: 40, maximum: 60)
