@@ -34,7 +34,9 @@ struct Knight: Piece {
                         moves.append(.attack(x: move.x, y: move.y))
                     }
                 } else {
-                    moves.append(.available(x: move.x, y: move.y))
+                    if move.y <= (Board.cells - 1) && move.y >= 0 {
+                        moves.append(.available(x: move.x, y: move.y))
+                    }
                 }
             }
         }
