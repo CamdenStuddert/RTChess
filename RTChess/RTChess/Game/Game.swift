@@ -90,10 +90,10 @@ class Game: ObservableObject {
             if let move = board.pieces[index].getAvailableMoves(board: board).first(where: { $0.x == location.x && $0.y == location.y }) {
                 switch move {
                 case let .attack(x: x, y: y, id: id):
+                    board.pieces[index].target = CGPoint(x: Double(location.x) * Board.cellSize, y: Double(location.y) * Board.cellSize)
                     if let enemyIndex = board.getPieceIndexWith(id: id) {
                         board.pieces.remove(at: enemyIndex)
                     }
-                    board.pieces[index].target = CGPoint(x: Double(location.x) * Board.cellSize, y: Double(location.y) * Board.cellSize)
                     self.selected = nil
                 case let .available(x: x, y: y):
                     board.pieces[index].target = CGPoint(x: Double(location.x) * Board.cellSize, y: Double(location.y) * Board.cellSize)
