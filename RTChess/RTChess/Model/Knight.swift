@@ -1,8 +1,9 @@
 import Foundation
 
 struct Knight: Piece {
-    let speed: CGFloat = 3
-    
+    let speed: CGFloat = Build.dev ? 10 : 3
+    let moveCost: Float = 1
+
     let id = UUID()
     var position: CGPoint
     var target: CGPoint? = nil
@@ -31,7 +32,7 @@ struct Knight: Piece {
             for piece in board.pieces{
                 if (piece.target == nil && piece.location.x == move.x && piece.location.y == move.y) {
                     if piece.team != team {
-                        moves.append(.attack(x: move.x, y: move.y))
+                        moves.append(.attack(x: move.x, y: move.y, id: piece.id))
                     } else {
                         continue outer
                     }

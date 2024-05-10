@@ -5,6 +5,7 @@ protocol Piece {
     
     var id: UUID { get }
     var team: Team { get }
+    var moveCost: Float { get }
     
     var speed: CGFloat { get }
     

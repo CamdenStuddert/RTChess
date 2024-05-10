@@ -1,8 +1,8 @@
 import Foundation
 
 struct Queen: Piece {
-    let speed: CGFloat = 10
-    
+    let speed: CGFloat = Build.dev ? 10 : 2
+    let moveCost: Float = 1
     let id = UUID()
     var position: CGPoint
     var target: CGPoint? = nil

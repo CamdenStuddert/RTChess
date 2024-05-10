@@ -3,6 +3,14 @@ import QuartzCore
 
 class Game: ObservableObject {
     
+    static var mpRegen = 120
+    static var maxMp = 15
+    static var minMp = 0
+    
+    private var ticks = 0
+    
+    @Published var mp = 0
+    
     @Published var board: Board
     @Published var selected: UUID? = nil
     
@@ -75,6 +83,25 @@ class Game: ObservableObject {
     }
     
     func select(as position: CGPoint) {
+                
+        if let selected, let index = board.getPieceIndexWith(id: selected) {
+            print(board.pieces[index])
+            let location = Board.getLocation(at: position)
+            if let move = board.pieces[index].getAvailableMoves(board: board).first(where: { $0.x == location.x && $0.y == location.y }) {
+                switch move {
+                case let .attack(x: x, y: y, id: id):
+                    if let enemyIndex = board.getPieceIndexWith(id: id) {
+                        board.pieces.remove(at: enemyIndex)
+                    }
+                    board.pieces[index].target = CGPoint(x: Double(location.x) * Board.cellSize, y: Double(location.y) * Board.cellSize)
+                    self.selected = nil
+                case let .available(x: x, y: y):
+                    board.pieces[index].target = CGPoint(x: Double(location.x) * Board.cellSize, y: Double(location.y) * Board.cellSize)
+                    self.selected = nil
+                }
+            }
+
+        }
         
         for piece in board.pieces {
             if position.x > piece.position.x &&
@@ -87,21 +114,16 @@ class Game: ObservableObject {
                 
             }
         }
-        
-        if let selected, let index = board.getPieceIndexWith(id: selected) {
-            
-            let location = Board.getLocation(at: position)
-            if board.pieces[index].getAvailableMoves(board: board).contains(where: { $0.x == location.x && $0.y == location.y }) {
-                board.pieces[index].target = CGPoint(x: Double(location.x) * Board.cellSize, y: Double(location.y) * Board.cellSize)
-                self.selected = nil
-            }
-            
-        }
+
         
     }
     
     @objc
     func update() {
+        ticks += 1
+        if ticks % Self.mpRegen == 0 {
+            mp = min(Self.maxMp, mp + 1)
+        }
         
         for index in board.pieces.indices {
             let piece = board.pieces[index]

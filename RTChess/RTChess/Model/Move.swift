@@ -15,19 +15,19 @@ private protocol MoveProtocol {
 enum Move: MoveProtocol {
     var x: Int {
         switch self {
-        case let .available(x, y): return x
-        case let .attack(x, y): return x
+        case let .available(x, _): return x
+        case let .attack(x, _, _): return x
         }
     }
     var y: Int {
         switch self {
-        case let .available(x, y): return y
-        case let .attack(x, y): return y
+        case let .available(_, y): return y
+        case let .attack(_, y, _): return y
         }
     }
      
     case available(x: Int, y: Int)
-    case attack(x: Int, y: Int)
+    case attack(x: Int, y: Int, id: UUID)
 }
 //struct Move {
 //    let x: Int
