@@ -27,17 +27,18 @@ struct Knight: Piece {
             .available(x: location.x - 1, y: location.y + 2),
             .available(x: location.x - 1, y: location.y - 2),
         ]
-        for move in possibleMoves {
+        outer: for move in possibleMoves {
             for piece in board.pieces{
                 if (piece.target == nil && piece.location.x == move.x && piece.location.y == move.y) {
                     if piece.team != team {
                         moves.append(.attack(x: move.x, y: move.y))
-                    }
-                } else {
-                    if move.y <= (Board.cells - 1) && move.y >= 0 {
-                        moves.append(.available(x: move.x, y: move.y))
+                    } else {
+                        continue outer
                     }
                 }
+            }
+            if move.y <= (Board.cells - 1) && move.y >= 0 && move.x >= 0 && move.x <= (Board.cells - 1) {
+                moves.append(.available(x: move.x, y: move.y))
             }
         }
         return moves
