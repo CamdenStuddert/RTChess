@@ -25,6 +25,7 @@ enum Move: MoveProtocol {
         case let .attack(_, y, _): return y
         }
     }
+    var location: (x: Int, y: Int) { return (x: x, y: y) }
      
     case available(x: Int, y: Int)
     case attack(x: Int, y: Int, id: UUID)

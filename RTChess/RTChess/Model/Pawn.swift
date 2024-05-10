@@ -2,7 +2,7 @@ import Foundation
 
 struct Pawn: Piece {
     let speed: CGFloat = Build.dev ? 10 : 1
-    let moveCost: Float = 1
+    let baseCost: Int = 1
     let id = UUID()
     
     var position: CGPoint

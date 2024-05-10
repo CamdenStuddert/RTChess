@@ -2,7 +2,7 @@ import Foundation
 
 struct Knight: Piece {
     let speed: CGFloat = Build.dev ? 10 : 3
-    let moveCost: Float = 1
+    let baseCost: Int = 2
 
     let id = UUID()
     var position: CGPoint
@@ -33,9 +33,8 @@ struct Knight: Piece {
                 if (piece.target == nil && piece.location.x == move.x && piece.location.y == move.y) {
                     if piece.team != team {
                         moves.append(.attack(x: move.x, y: move.y, id: piece.id))
-                    } else {
-                        continue outer
                     }
+                    continue outer
                 }
             }
             if move.y <= (Board.cells - 1) && move.y >= 0 && move.x >= 0 && move.x <= (Board.cells - 1) {
@@ -44,137 +43,4 @@ struct Knight: Piece {
         }
         return moves
     }
-        
-//        if location.y == 7 {
-//            let moves: [Move] = [
-//                .available(x: location.x + 1,
-//                           y: location.y - 2),
-//                .available(x: location.x - 1,
-//                           y: location.y - 2),
-//                .available(x: location.x + 2,
-//                           y: location.y - 1),
-//                .available(x: location.x - 2,
-//                           y: location.y - 1)
-//            ]
-//            
-//            return moves
-//        } else if location.y == 6 {
-//            let moves: [Move] = [
-//                .available(x: location.x + 2,
-//                           y: location.y - 1),
-//                .available(x: location.x - 2,
-//                           y: location.y - 1),
-//                .available(x: location.x + 2,
-//                           y: location.y + 1),
-//                .available(x: location.x - 2,
-//                           y: location.y + 1),
-//                .available(x: location.x - 1,
-//                           y: location.y - 2),
-//                .available(x: location.x + 1,
-//                           y: location.y - 2)
-//            ]
-//            return moves
-//        } else if location.y == 1 {
-//            let moves: [Move] = [
-//                .available(x: location.x + 2,
-//                           y: location.y - 1),
-//                .available(x: location.x - 2,
-//                           y: location.y - 1),
-//                .available(x: location.x + 2,
-//                           y: location.y + 1),
-//                .available(x: location.x - 2,
-//                           y: location.y + 1),
-//                .available(x: location.x - 1,
-//                           y: location.y + 2),
-//                .available(x: location.x + 1,
-//                           y: location.y + 2)
-//            ]
-//            return moves
-//        } else if location.y > 1 && location.y < 6 {
-//            let moves: [Move] = [
-//                .available(x: location.x + 1,
-//                           y: location.y - 2),
-//                .available(x: location.x - 1,
-//                           y: location.y - 2),
-//                .available(x: location.x + 2,
-//                           y: location.y - 1),
-//                .available(x: location.x - 2,
-//                           y: location.y - 1),
-//                .available(x: location.x - 2,
-//                           y: location.y + 1),
-//                .available(x: location.x + 2,
-//                           y: location.y + 1),
-//                .available(x: location.x + 1,
-//                           y:location.y + 2),
-//                .available(x: location.x - 1,
-//                           y: location.y + 2)
-//            ]
-//            return moves
-//        } else if location.y == 0 {
-//            let moves: [Move] = [
-//                .available(x: location.x + 1,
-//                           y: location.y + 2),
-//                .available(x: location.x - 1,
-//                           y: location.y + 2),
-//                .available(x: location.x + 2,
-//                           y: location.y + 1),
-//                .available(x: location.x - 2,
-//                           y: location.y + 1)
-//            ]
-//            return moves
-//        } else if location.y == 6 {
-//            let moves: [Move] = [
-//                .available(x: location.x + 2,
-//                           y: location.y - 1),
-//                .available(x: location.x - 2,
-//                           y: location.y - 1),
-//                .available(x: location.x + 2,
-//                           y: location.y + 1),
-//                .available(x: location.x - 2,
-//                           y: location.y + 1),
-//                .available(x: location.x - 1,
-//                           y: location.y - 2),
-//                .available(x: location.x + 1,
-//                           y: location.y - 2)
-//            ]
-//            return moves
-//        } else if location.y == 1 {
-//            let moves: [Move] = [
-//                .available(x: location.x + 2,
-//                           y: location.y - 1),
-//                .available(x: location.x - 2,
-//                           y: location.y - 1),
-//                .available(x: location.x + 2,
-//                           y: location.y + 1),
-//                .available(x: location.x - 2,
-//                           y: location.y + 1),
-//                .available(x: location.x - 1,
-//                           y: location.y + 2),
-//                .available(x: location.x + 1,
-//                           y: location.y + 2)
-//            ]
-//            return moves
-//        } else if location.y > 1 && location.y < 6 {
-//            let moves: [Move] = [
-//                .available(x: location.x + 1,
-//                           y: location.y - 2),
-//                .available(x: location.x - 1,
-//                           y: location.y - 2),
-//                .available(x: location.x + 2,
-//                           y: location.y - 1),
-//                .available(x: location.x - 2,
-//                           y: location.y - 1),
-//                .available(x: location.x - 2,
-//                           y: location.y + 1),
-//                .available(x: location.x + 2,
-//                           y: location.y + 1),
-//                .available(x: location.x + 1,
-//                           y:location.y + 2),
-//                .available(x:location.x - 1,
-//                           y: location.y + 2)
-//            ]
-//            return moves
-//        }
-//        return moves
-//    }
 }

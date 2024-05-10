@@ -66,6 +66,7 @@ struct GameView: View {
                                         size: CGSize(width: imageSize, height: imageSize))), with: .color(Color.white), style: StrokeStyle(lineWidth: 2))
                             
                             for move in piece.getAvailableMoves(board: game.board) {
+                                let expensive = game.mp < piece.cost(to: move.location)
                                 let path = Path(CGRect(
                                     x: CGFloat(move.x) * cellSize,
                                     y: CGFloat(move.y) * cellSize,
@@ -78,6 +79,8 @@ struct GameView: View {
                                     case .attack: color = Color.red.opacity(0.3)
                                     case .available: color = Color.green.opacity(0.3)
                                 }
+                                color = expensive ? Color.blue.opacity(0.3) : color
+                                
                                 context.fill(path, with: .color(color))
 
                             }

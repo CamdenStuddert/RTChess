@@ -9,7 +9,7 @@ class Game: ObservableObject {
     
     private var ticks = 0
     
-    @Published var mp = 0
+    @Published var mp = 5
     
     @Published var board: Board
     @Published var selected: UUID? = nil
@@ -85,20 +85,26 @@ class Game: ObservableObject {
     func select(as position: CGPoint) {
                 
         if let selected, let index = board.getPieceIndexWith(id: selected) {
-            print(board.pieces[index])
-            let location = Board.getLocation(at: position)
-            if let move = board.pieces[index].getAvailableMoves(board: board).first(where: { $0.x == location.x && $0.y == location.y }) {
+            let pieceLocation = board.pieces[index].location
+            let tappedLocation = Board.getLocation(at: position)
+            
+
+            let cost = board.pieces[index].cost(to: tappedLocation)
+            if cost > mp { return }
+            
+            if let move = board.pieces[index].getAvailableMoves(board: board).first(where: { $0.x == tappedLocation.x && $0.y == tappedLocation.y }) {
                 switch move {
                 case let .attack(x: x, y: y, id: id):
-                    board.pieces[index].target = CGPoint(x: Double(location.x) * Board.cellSize, y: Double(location.y) * Board.cellSize)
+                    board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
                     if let enemyIndex = board.getPieceIndexWith(id: id) {
                         board.pieces.remove(at: enemyIndex)
                     }
-                    self.selected = nil
-                case let .available(x: x, y: y):
-                    board.pieces[index].target = CGPoint(x: Double(location.x) * Board.cellSize, y: Double(location.y) * Board.cellSize)
-                    self.selected = nil
+                case .available(x: _, y: _):
+                    board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
                 }
+                
+                self.selected = nil
+                mp -= cost
             }
 
         }

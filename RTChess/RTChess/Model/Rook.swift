@@ -2,7 +2,7 @@ import Foundation
 
 struct Rook: Piece {
     let speed: CGFloat = Build.dev ? 10 : 2
-    let moveCost: Float = 1
+    let baseCost: Int = 3
     let id = UUID()
     
     var position: CGPoint
