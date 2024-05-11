@@ -28,7 +28,7 @@ enum Move: MoveProtocol {
     var location: (x: Int, y: Int) { return (x: x, y: y) }
      
     case available(x: Int, y: Int)
-    case attack(x: Int, y: Int, id: UUID)
+    case attack(x: Int, y: Int, piece: Piece)
 }
 //struct Move {
 //    let x: Int

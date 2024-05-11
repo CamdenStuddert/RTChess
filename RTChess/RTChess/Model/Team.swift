@@ -1,6 +1,6 @@
 import Foundation
 
 enum Team {
-    case black
-    case white
+    case foe
+    case friend
 }

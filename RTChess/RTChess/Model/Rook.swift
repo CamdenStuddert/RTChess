@@ -35,7 +35,7 @@ struct Rook: Piece {
                         piece.targetLocation ?? (x:-1,y:-1) == move {
                         
                         if piece.team != team {
-                            moves.append(.attack(x: move.x, y: move.y, id: piece.id))
+                            moves.append(.attack(x: move.x, y: move.y, piece: piece))
                         }
                         break outer
                     }
@@ -51,7 +51,7 @@ struct Rook: Piece {
                     piece.targetLocation ?? (x:-1,y:-1) == move {
                     
                     if piece.team != team {
-                        moves.append(.attack(x: move.x, y: move.y, id: piece.id))
+                        moves.append(.attack(x: move.x, y: move.y, piece: piece))
                     }
                     
                     break outer
@@ -70,7 +70,7 @@ struct Rook: Piece {
                         piece.targetLocation ?? (x:-1,y:-1) == move {
                         
                         if piece.team != team {
-                            moves.append(.attack(x: move.x, y: move.y, id: piece.id))
+                            moves.append(.attack(x: move.x, y: move.y, piece: piece))
                         }
 
                         break outer
@@ -87,7 +87,7 @@ struct Rook: Piece {
                     piece.targetLocation ?? (x:-1,y:-1) == move {
                     
                     if piece.team != team {
-                        moves.append(.attack(x: move.x, y: move.y, id: piece.id))
+                        moves.append(.attack(x: move.x, y: move.y, piece: piece))
                     }
 
                     break outer

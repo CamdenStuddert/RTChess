@@ -37,12 +37,12 @@ struct GameView: View {
                         var imageName: String? = nil
                         switch piece {
                             
-                        case is Pawn: imageName = piece.team == .white ? "White Pawn" : "Black Pawn"
-                        case is Rook: imageName = piece.team == .white ? "White Rook" : "Black Rook"
-                        case is Knight: imageName = piece.team == .white ? "White Knight" : "Black Knight"
-                        case is Bishop: imageName = piece.team == .white ? "White Bishop" : "Black Bishop"
-                        case is Queen: imageName = piece.team == .white ? "White Queen" : "Black Queen"
-                        case is King: imageName = piece.team == .white ? "White King" : "Black King"
+                        case is Pawn: imageName = piece.team == .friend ? "White Pawn" : "Black Pawn"
+                        case is Rook: imageName = piece.team == .friend ? "White Rook" : "Black Rook"
+                        case is Knight: imageName = piece.team == .friend ? "White Knight" : "Black Knight"
+                        case is Bishop: imageName = piece.team == .friend ? "White Bishop" : "Black Bishop"
+                        case is Queen: imageName = piece.team == .friend ? "White Queen" : "Black Queen"
+                        case is King: imageName = piece.team == .friend ? "White King" : "Black King"
                             
                         default: break
                         }
@@ -56,6 +56,16 @@ struct GameView: View {
                                 origin: CGPoint(x: piece.position.x * scale + margin, y: piece.position.y * scale + margin),
                                 size: CGSize(width: imageSize, height: imageSize))
                         )
+                        
+                        if (piece.id == game.board.foeKingId && game.foeInCheck) || (piece.id == game.board.friendKingId && game.friendInCheck) {
+                            let path = Path(CGRect(
+                                x: CGFloat(piece.location.x) * cellSize,
+                                y: CGFloat(piece.location.y) * cellSize,
+                                width: cellSize,
+                                height: cellSize)
+                            )
+                            context.fill(path, with: .color(Color.yellow.opacity(0.3)))
+                        }
                         
                         if game.selected == piece.id {
                             

@@ -25,7 +25,7 @@ struct Pawn: Piece {
         let location = Board.getLocation(at: position)
         var moves: [Move] = []
 
-        let multiplier = team == .white ? -1 : 1
+        let multiplier = team == .friend ? -1 : 1
         
         var possibleMoves: [Move] = [.available(x: location.x, y: location.y + multiplier)]
         if !moved {
@@ -48,9 +48,9 @@ struct Pawn: Piece {
             }
         }
         outer: for attack in possibleAttacks {
-            for piece in (team == .white ? board.blackPieces : board.whitePieces) {
+            for piece in (team == .friend ? board.foePieces : board.friendPieces) {
                 if (piece.target == nil && piece.location.x == attack.x && piece.location.y == attack.y) {
-                    moves.append(.attack(x: attack.x, y: attack.y, id: piece.id))
+                    moves.append(.attack(x: attack.x, y: attack.y, piece: piece))
                     continue
                 }
             }

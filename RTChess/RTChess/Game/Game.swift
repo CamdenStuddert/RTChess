@@ -9,73 +9,23 @@ class Game: ObservableObject {
     
     private var ticks = 0
     
-    @Published var mp = 5
-    
+    @Published var mp = Build.dev ? 1000000 : 5
     @Published var board: Board
     @Published var selected: UUID? = nil
     
     var updater: CADisplayLink = CADisplayLink()
+    
+    var friendInCheck: Bool {
+        !board.friendChallangers.isEmpty
+    }
+    var foeInCheck: Bool {
+        !board.foeChallangers.isEmpty
+    }
 
     init() {
         
         board = Board()
-                
-        for x in 0..<Board.cells {
-            let whitePawn = Pawn(.white, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize * 6))
-            board.pieces.append(whitePawn)
-            let blackPawn = Pawn(.black, position: CGPoint(x: Board.cellSize * Double(x), y: Board.cellSize))
-            board.pieces.append(blackPawn)
-        }
-        
-        //The Doubles are to position the pieces on an 8x8 Grid
-        
-        let whiteRook1 = Rook(.white, position: CGPoint(x: Board.cellSize * Double(0), y: Board.cellSize * 7))
-        board.pieces.append(whiteRook1)
-        let whiteRook2 = Rook(.white, position: CGPoint(x: Board.cellSize * Double(7), y: Board.cellSize * 7))
-        board.pieces.append(whiteRook2)
-        
-        
-        let blackRook1 = Rook(.black, position: CGPoint(x: Board.cellSize * Double(0), y: Board.cellSize * 0))
-        board.pieces.append(blackRook1)
-        let blackRook2 = Rook(.black, position: CGPoint(x: Board.cellSize * Double(7), y: Board.cellSize * 0))
-        board.pieces.append(blackRook2)
-        
-        
-        let whiteKnight1 = Knight(.white, position: CGPoint(x: Board.cellSize * Double(1), y: Board.cellSize * 7))
-        board.pieces.append(whiteKnight1)
-        let whiteKnight2 = Knight(.white, position: CGPoint(x: Board.cellSize * Double(6), y: Board.cellSize * 7))
-        board.pieces.append(whiteKnight2)
-        
-        
-        let blackKnight1 = Knight(.black, position: CGPoint(x: Board.cellSize * Double(1), y: Board.cellSize * 0))
-        board.pieces.append(blackKnight1)
-        let blackKnight2 = Knight(.black, position: CGPoint(x: Board.cellSize * Double(6), y: Board.cellSize * 0))
-        board.pieces.append(blackKnight2)
-        
-        
-        let whiteBishop1 = Bishop(.white, position: CGPoint(x: Board.cellSize * Double(2), y: Board.cellSize * 7))
-        board.pieces.append(whiteBishop1)
-        let whiteBishop2 = Bishop(.white, position: CGPoint(x: Board.cellSize * Double(5), y: Board.cellSize * 7))
-        board.pieces.append(whiteBishop2)
-        
-        
-        let blackBishop1 = Bishop(.black, position: CGPoint(x: Board.cellSize * Double(2), y: Board.cellSize * 0))
-        board.pieces.append(blackBishop1)
-        let blackBishop2 = Bishop(.black, position: CGPoint(x: Board.cellSize * Double(5), y: Board.cellSize * 0))
-        board.pieces.append(blackBishop2)
-        
-        
-        let whiteQueen = Queen(.white, position: CGPoint(x: Board.cellSize * Double(3), y: Board.cellSize * 7))
-        board.pieces.append(whiteQueen)
-        let blackQueen = Queen(.black, position: CGPoint(x: Board.cellSize * Double(3), y: Board.cellSize * 0))
-        board.pieces.append(blackQueen)
-        
-        
-        let whiteKing = King(.white, position: CGPoint(x: Board.cellSize * Double(4), y: Board.cellSize * 7))
-        board.pieces.append(whiteKing)
-        let blackKing = King(.black, position: CGPoint(x: Board.cellSize * Double(4), y: Board.cellSize * 0))
-        board.pieces.append(blackKing)
-        
+                    
         updater = CADisplayLink(target: self, selector: #selector(update))
         updater.preferredFrameRateRange = CAFrameRateRange(minimum: 40, maximum: 60)
         updater.add(to: .current, forMode: .default)
@@ -85,7 +35,6 @@ class Game: ObservableObject {
     func select(as position: CGPoint) {
                 
         if let selected, let index = board.getPieceIndexWith(id: selected) {
-            let pieceLocation = board.pieces[index].location
             let tappedLocation = Board.getLocation(at: position)
             
 
@@ -94,9 +43,9 @@ class Game: ObservableObject {
             
             if let move = board.pieces[index].getAvailableMoves(board: board).first(where: { $0.x == tappedLocation.x && $0.y == tappedLocation.y }) {
                 switch move {
-                case let .attack(x: x, y: y, id: id):
+                case let .attack(x: _, y: _, piece: piece):
                     board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
-                    if let enemyIndex = board.getPieceIndexWith(id: id) {
+                    if let enemyIndex = board.getPieceIndexWith(id: piece.id) {
                         board.pieces.remove(at: enemyIndex)
                     }
                 case .available(x: _, y: _):
@@ -109,6 +58,7 @@ class Game: ObservableObject {
 
         }
         
+        var clickedPiece = false
         for piece in board.pieces {
             if position.x > piece.position.x &&
                 position.x < piece.position.x + Board.pieceSize &&
@@ -116,11 +66,15 @@ class Game: ObservableObject {
                 position.y < piece.position.y + Board.pieceSize {
                 
                 selected = piece.id
+                clickedPiece = true
                 return
                 
             }
         }
-
+        
+        if !clickedPiece {
+            selected = nil
+        }
         
     }
     
@@ -153,6 +107,26 @@ class Game: ObservableObject {
             
         }
         
+        var friendChallangers:[Piece] = []
+        var foeChallangers:[Piece] = []
+        for piece in board.pieces {
+            if piece.target != nil { continue }
+            let moves = piece.getAvailableMoves(board: board)
+            
+            for move in moves {
+                if case .attack(_, _, let enemy) = move {
+                    if enemy.id == board.foeKingId && piece.team == .friend {
+                        foeChallangers.append(piece)
+                    }
+                    if enemy.id == board.friendKingId && piece.team == .foe {
+                        friendChallangers.append(piece)
+                    }
+                }
+            }
+        }
+        
+        board.friendChallangers = friendChallangers
+        board.foeChallangers = foeChallangers
     }
-    
+
 }
