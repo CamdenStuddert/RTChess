@@ -21,6 +21,15 @@ struct Pawn: Piece {
         self.position = position
     }
     
+    static func getPawnAttacks(position: CGPoint, team: Team) -> [(x: Int, y: Int)] {
+        let location = Board.getLocation(at: position)
+        let multiplier = team == .friend ? -1 : 1
+        return [
+            (x: location.x-1, y: location.y + multiplier),
+            (x: location.x+1, y: location.y + multiplier)
+        ]
+    }
+    
     func getAvailableMoves(board: Board) -> [Move] {
         let location = Board.getLocation(at: position)
         var moves: [Move] = []
@@ -32,10 +41,7 @@ struct Pawn: Piece {
             possibleMoves.append(.available(x: location.x, y: location.y + (multiplier * 2)))
         }
 
-        let possibleAttacks: [(x: Int, y: Int)] = [
-            (x: location.x-1, y: location.y + multiplier),
-            (x: location.x+1, y: location.y + multiplier)
-        ]
+        let possibleAttacks: [(x: Int, y: Int)] = Self.getPawnAttacks(position: position, team: team)
 
         outer: for move in possibleMoves {
             for piece in board.pieces{

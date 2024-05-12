@@ -15,6 +15,7 @@ struct Queen: Piece {
     }
     
     func getAvailableMoves(board: Board) -> [Move] {
+        if target != nil {return []}
         return Bishop.getBishopMoves(board: board, position: position, team: team) + Rook.getRookMoves(board: board, position: position, team: team)
     }
 }

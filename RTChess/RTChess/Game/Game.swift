@@ -9,7 +9,7 @@ class Game: ObservableObject {
     
     private var ticks = 0
     
-    @Published var mp = Build.dev ? 1000000 : 5
+    @Published var mp = Build.dev ? 1500 : 5
     @Published var board: Board
     @Published var selected: UUID? = nil
     
@@ -39,21 +39,21 @@ class Game: ObservableObject {
             
 
             let cost = board.pieces[index].cost(to: tappedLocation)
-            if cost > mp { return }
-            
             if let move = board.pieces[index].getAvailableMoves(board: board).first(where: { $0.x == tappedLocation.x && $0.y == tappedLocation.y }) {
-                switch move {
-                case let .attack(x: _, y: _, piece: piece):
-                    board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
-                    if let enemyIndex = board.getPieceIndexWith(id: piece.id) {
-                        board.pieces.remove(at: enemyIndex)
+                if cost <= mp {
+                    switch move {
+                    case let .attack(x: _, y: _, piece: piece):
+                        board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
+                        if let enemyIndex = board.getPieceIndexWith(id: piece.id) {
+                            board.pieces.remove(at: enemyIndex)
+                        }
+                    case .available(x: _, y: _):
+                        board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
                     }
-                case .available(x: _, y: _):
-                    board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
+                    
+                    self.selected = nil
+                    mp -= cost
                 }
-                
-                self.selected = nil
-                mp -= cost
             }
 
         }
@@ -81,7 +81,7 @@ class Game: ObservableObject {
     @objc
     func update() {
         ticks += 1
-        if ticks % Self.mpRegen == 0 {
+        if ticks % Self.mpRegen == 0 && !Build.dev {
             mp = min(Self.maxMp, mp + 1)
         }
         

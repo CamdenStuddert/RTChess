@@ -13,8 +13,8 @@ struct King: Piece {
         self.team = team
         self.position = position
     }
-    
-    func getAvailableMoves(board: Board) -> [Move] {
+        
+    static func getKingMoves(board: Board, position: CGPoint, team: Team) -> [Move] {
         
         let location = Board.getLocation(at: position)
         var moves: [Move] = []
@@ -32,7 +32,7 @@ struct King: Piece {
             for piece in board.pieces{
                 if (piece.target == nil && piece.location.x == move.x && piece.location.y == move.y) {
                     if piece.team != team {
-                        moves.append(.attack(x: move.x, y: move.y, id: piece.id))
+                        moves.append(.attack(x: move.x, y: move.y, piece: piece))
                     }
                     continue outer
                 }
@@ -41,6 +41,29 @@ struct King: Piece {
                 moves.append(.available(x: move.x, y: move.y))
             }
         }
+                
         return moves
     }
+    
+    func getAvailableMoves(board: Board) -> [Move] {
+        var enemyMoves: [Move] = []
+        var enemyPieces = team == .friend ? board.foePieces : board.friendPieces
+        for enemyPiece in enemyPieces {
+            if enemyPiece is King {
+                enemyMoves.append(contentsOf: King.getKingMoves(board: board, position: enemyPiece.position, team: enemyPiece.team))
+            } else if enemyPiece is Pawn {
+                enemyMoves.append(contentsOf: Pawn.getPawnAttacks(position: enemyPiece.position, team: enemyPiece.team).map({.available(x: $0.x, y: $0.y)}))
+            } else {
+                enemyMoves.append(contentsOf: enemyPiece.getAvailableMoves(board: board))
+            }
+        }
+        
+        let possibleMoves =  Self.getKingMoves(board: board, position: position, team: team).filter({ possibleMove in
+            
+            !enemyMoves.contains(possibleMove)
+        })
+                        
+        return possibleMoves
+    }
+
 }

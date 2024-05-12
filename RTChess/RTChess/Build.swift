@@ -8,5 +8,5 @@
 import Foundation
 
 class Build {
-    static var dev = true
+    static var dev = false
 }

@@ -12,7 +12,7 @@ private protocol MoveProtocol {
     var y: Int {get}
 }
 
-enum Move: MoveProtocol {
+enum Move: MoveProtocol, Equatable {
     var x: Int {
         switch self {
         case let .available(x, _): return x
@@ -29,6 +29,10 @@ enum Move: MoveProtocol {
      
     case available(x: Int, y: Int)
     case attack(x: Int, y: Int, piece: Piece)
+    
+    static func ==(lhs: Move, rhs: Move) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y
+    }
 }
 //struct Move {
 //    let x: Int
