@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0481DC3B2BF2D14F007D2160 /* OneDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481DC3A2BF2D14F007D2160 /* OneDeviceView.swift */; };
 		0486FBA42BD8847C00A36FF5 /* RTChessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBA32BD8847C00A36FF5 /* RTChessApp.swift */; };
 		0486FBA62BD8847C00A36FF5 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBA52BD8847C00A36FF5 /* GameView.swift */; };
 		0486FBAA2BD8847D00A36FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0486FBA92BD8847D00A36FF5 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0481DC3A2BF2D14F007D2160 /* OneDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDeviceView.swift; sourceTree = "<group>"; };
 		0486FBA02BD8847C00A36FF5 /* RTChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0486FBA32BD8847C00A36FF5 /* RTChessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTChessApp.swift; sourceTree = "<group>"; };
 		0486FBA52BD8847C00A36FF5 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				0486FBA52BD8847C00A36FF5 /* GameView.swift */,
 				0486FBB32BE008A000A36FF5 /* HomeView.swift */,
 				0486FBB52BE02B9300A36FF5 /* HostJoinView.swift */,
+				0481DC3A2BF2D14F007D2160 /* OneDeviceView.swift */,
 				0486FBB72BE02BAB00A36FF5 /* SettingsView.swift */,
 			);
 			path = UI;
@@ -240,6 +243,7 @@
 				0486FBB82BE02BAB00A36FF5 /* SettingsView.swift in Sources */,
 				6230C41C2BD893CB005509BD /* Team.swift in Sources */,
 				0486FBA62BD8847C00A36FF5 /* GameView.swift in Sources */,
+				0481DC3B2BF2D14F007D2160 /* OneDeviceView.swift in Sources */,
 				0486FBB42BE008A000A36FF5 /* HomeView.swift in Sources */,
 				6226CC9D2BD890010090EB21 /* Rook.swift in Sources */,
 				6226CC9B2BD88FE80090EB21 /* Pawn.swift in Sources */,
