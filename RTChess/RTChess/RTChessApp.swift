@@ -4,7 +4,7 @@ import SwiftData
 @main
 struct RTChessApp: App {
     
-    @StateObject var game = Game()
+    @StateObject var game = Game(team: .friend)
     
     var body: some Scene {
         WindowGroup {

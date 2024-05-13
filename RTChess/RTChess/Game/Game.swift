@@ -14,6 +14,7 @@ class Game: ObservableObject {
     @Published var selected: UUID? = nil
     
     var updater: CADisplayLink = CADisplayLink()
+    var team: Team
     
     var friendInCheck: Bool {
         !board.friendChallangers.isEmpty
@@ -22,13 +23,14 @@ class Game: ObservableObject {
         !board.foeChallangers.isEmpty
     }
 
-    init() {
-        
+    init(team: Team) {
+        self.team = team
         board = Board()
                     
         updater = CADisplayLink(target: self, selector: #selector(update))
         updater.preferredFrameRateRange = CAFrameRateRange(minimum: 40, maximum: 60)
         updater.add(to: .current, forMode: .default)
+        
         
     }
     
@@ -44,9 +46,9 @@ class Game: ObservableObject {
                     switch move {
                     case let .attack(x: _, y: _, piece: piece):
                         board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
-                        if let enemyIndex = board.getPieceIndexWith(id: piece.id) {
-                            board.pieces.remove(at: enemyIndex)
-                        }
+//                        if let enemyIndex = board.getPieceIndexWith(id: piece.id) {
+//                            board.pieces.remove(at: enemyIndex)
+//                        }
                     case .available(x: _, y: _):
                         board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
                     }
@@ -65,8 +67,10 @@ class Game: ObservableObject {
                 position.y > piece.position.y &&
                 position.y < piece.position.y + Board.pieceSize {
                 
-                selected = piece.id
-                clickedPiece = true
+                if piece.team == team {
+                    selected = piece.id
+                    clickedPiece = true
+                }
                 return
                 
             }
@@ -85,6 +89,8 @@ class Game: ObservableObject {
             mp = min(Self.maxMp, mp + 1)
         }
         
+        var delete: Int? = nil
+
         for index in board.pieces.indices {
             let piece = board.pieces[index]
             
@@ -93,8 +99,21 @@ class Game: ObservableObject {
                 let delta = Vector(x: target.x - piece.position.x, y: target.y - piece.position.y)
                 
                 if delta.magnitude < piece.speed {
+                    let piecesAtLocation = board.getPiecesAt(location: Board.getLocation(at: target))
+                    for pieceAtLocation in piecesAtLocation {
+                        if(pieceAtLocation.team != piece.team) {
+                            delete = board.getPieceIndexWith(id: pieceAtLocation.id)
+                        }
+                    }
+//                    if let enemyIndex = board.getPieceIndexAt(location: Board.getLocation(at: target)) {
+//                        delete = enemyIndex
+//                    }
+                    
                     board.pieces[index].position = target
                     board.pieces[index].target = nil
+                    //                    if let enemyIndex = board.getPieceIndexWith(id: piece.id) {
+//                        board.pieces.remove(at: enemyIndex)
+//                    }
                     
                     continue
                 }
@@ -105,6 +124,10 @@ class Game: ObservableObject {
                 board.pieces[index].position.y += change.y
             }
             
+        }
+        
+        if let delete {
+            board.pieces.remove(at: delete)
         }
         
         var friendChallangers:[Piece] = []

@@ -103,7 +103,7 @@ struct Board {
     
     }
 
-    func getPieceAt(position: CGPoint) -> Int? {
+    func getPieceIndexAt(position: CGPoint) -> Int? {
         for index in pieces.indices {
             let piece = pieces[index]
             
@@ -120,5 +120,32 @@ struct Board {
         return nil
     }
     
+    func getPieceIndexAt(location: (x: Int, y: Int)) -> Int? {
+        for index in pieces.indices {
+            let pieceLocation = pieces[index].location
+            
+            if(location == pieceLocation) {
+                return index
+            }
+        }
+        
+        return nil
+    }
+    
+    func getPiecesAt(location: (x: Int, y: Int)) -> [Piece] {
+        var selectedPieces: [Piece] = []
+        
+        for index in pieces.indices {
+            let pieceLocation = pieces[index].location
+            
+            if(location == pieceLocation) {
+                selectedPieces.append(pieces[index])
+            }
+        }
+        
+        return selectedPieces
+    }
+
+
 }
 
