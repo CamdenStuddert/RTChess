@@ -1,10 +1,3 @@
-//
-//  Move.swift
-//  RTChess
-//
-//  Created by Corbin Bigler on 5/6/24.
-//
-
 import Foundation
 
 private protocol MoveProtocol {
@@ -34,13 +27,3 @@ enum Move: MoveProtocol, Equatable {
         return lhs.x == rhs.x && lhs.y == rhs.y
     }
 }
-//struct Move {
-//    let x: Int
-//    let y: Int
-//    let variant: Variant
-//    
-//    enum Variant {
-//        case available
-//        case attack
-//    }
-//}

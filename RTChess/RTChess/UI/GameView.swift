@@ -2,9 +2,12 @@ import SwiftUI
 
 struct GameView: View {
     
+//    @Environment(\.modelContext) private var context
     @EnvironmentObject var game: Game
+
         
     var body: some View {
+        
         GeometryReader { geo in
             
             Image("Background")
@@ -76,7 +79,7 @@ struct GameView: View {
                                 context.fill(path, with: .color(Color.yellow.opacity(0.3)))
                             }
                             
-                            if game.selected == piece.id {
+                            if game.whiteSelected == piece.id {
                                 
                                 context.stroke(
                                     RoundedRectangle(cornerRadius: 10)
@@ -85,7 +88,7 @@ struct GameView: View {
                                             size: CGSize(width: imageSize, height: imageSize))), with: .color(Color.white), style: StrokeStyle(lineWidth: 2))
                                 
                                 for move in piece.getAvailableMoves(board: game.board) {
-                                    let expensive = game.mp < piece.cost(to: move.location)
+                                    let expensive = game.whiteMp < piece.cost(to: move.location)
                                     let path = Path(CGRect(
                                         x: CGFloat(move.x) * cellSize,
                                         y: CGFloat(move.y) * cellSize,
@@ -121,7 +124,7 @@ struct GameView: View {
                 
                 HStack(spacing: 0) {
                     ForEach(Game.minMp..<Game.maxMp, id: \.self) { index in
-                        if(game.mp >= index) {
+                        if(game.whiteMp >= index) {
                             Color.red
                                 .border(Color.black, width: 1)
                         } else {
@@ -137,11 +140,9 @@ struct GameView: View {
         }
 
     }
-
-    
 }
 
 #Preview {
     GameView()
-        .environmentObject(Game(team: .friend))
+        .environmentObject(Game())
 }

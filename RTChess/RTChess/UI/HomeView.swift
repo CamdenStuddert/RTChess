@@ -1,18 +1,12 @@
-//
-//  HomeView.swift
-//  RTChess
-//
-//  Created by Camden Studdert on 4/29/24.
-//
-
 import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-
+        NavigationView {
             
-            NavigationView {
+
                 GeometryReader { geo in
+
                     
                     Image("Background")
                         .resizable()

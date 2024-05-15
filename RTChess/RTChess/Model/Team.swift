@@ -4,3 +4,4 @@ enum Team {
     case foe
     case friend
 }
+

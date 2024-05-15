@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042430FD2BF41DB20086BD70 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042430FC2BF41DB20086BD70 /* UserData.swift */; };
 		0481DC3B2BF2D14F007D2160 /* OneDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481DC3A2BF2D14F007D2160 /* OneDeviceView.swift */; };
 		0486FBA42BD8847C00A36FF5 /* RTChessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBA32BD8847C00A36FF5 /* RTChessApp.swift */; };
 		0486FBA62BD8847C00A36FF5 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486FBA52BD8847C00A36FF5 /* GameView.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042430FC2BF41DB20086BD70 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		0481DC3A2BF2D14F007D2160 /* OneDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDeviceView.swift; sourceTree = "<group>"; };
 		0486FBA02BD8847C00A36FF5 /* RTChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0486FBA32BD8847C00A36FF5 /* RTChessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTChessApp.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				6282F7002BF1811D005A6530 /* WebSocketUtility.swift */,
 				6282F7022BF18149005A6530 /* GameData.swift */,
+				042430FC2BF41DB20086BD70 /* UserData.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				6267D0752BE3274F00F120FC /* Vector.swift in Sources */,
 				6226CCA52BD890290090EB21 /* Game.swift in Sources */,
 				6226CC9F2BD890060090EB21 /* Bishop.swift in Sources */,
+				042430FD2BF41DB20086BD70 /* UserData.swift in Sources */,
 				6282F6C52BEDB05D005A6530 /* Build.swift in Sources */,
 				6226CC972BD88DCD0090EB21 /* Board.swift in Sources */,
 				6226CC952BD88D6E0090EB21 /* Piece.swift in Sources */,
@@ -392,7 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RTChess/Preview Content\"";
-				DEVELOPMENT_TEAM = CN9BXLUCHZ;
+				DEVELOPMENT_TEAM = 78CBY8U92Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -426,7 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RTChess/Preview Content\"";
-				DEVELOPMENT_TEAM = CN9BXLUCHZ;
+				DEVELOPMENT_TEAM = 78CBY8U92Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
