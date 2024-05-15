@@ -1,8 +1,18 @@
 import SwiftUI
+import SwiftData
 
 struct HostJoinView: View {
+    @Query var query: [UserData]
+
+    var userData: UserData {
+        if(query.isEmpty) {
+            return UserData()
+        } else {
+            return query[0]
+        }
+    }
+    
     var body: some View {
-        
         GeometryReader { geo in
             
             Image("Background")
@@ -14,8 +24,8 @@ struct HostJoinView: View {
                 VStack{
                     Text("Table Matches")
                     HStack{
-                        Text("Black Wins: \("")")
-                        Text("White Wins: \("")")
+                        Text("Black Wins: \(userData.tableMatches.blackWins)")
+                        Text("White Wins: \(userData.tableMatches.whiteWins)")
                     }
                 }
                 //            VStack{
