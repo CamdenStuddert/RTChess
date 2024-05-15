@@ -20,17 +20,17 @@ struct HomeView: View {
                         .padding()
                         .scaledToFit()
                     
-                    
-                    NavigationLink(destination: HostJoinView()) {
-                        Text("Host/Join")
+                
+                    NavigationLink(destination: OneDeviceView()) {
+                        Text("Table Match")
                             .foregroundColor(.black)
                             .font(.system(size: 40))
                             .padding()
                             .border(.black, width: 4)
                             .padding()
                     }
-                    NavigationLink(destination: OneDeviceView()) {
-                        Text("Table Match")
+                    NavigationLink(destination: HostJoinView()) {
+                        Text("Stats")
                             .foregroundColor(.black)
                             .font(.system(size: 40))
                             .padding()
