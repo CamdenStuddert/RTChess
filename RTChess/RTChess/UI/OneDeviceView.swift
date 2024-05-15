@@ -1,8 +1,12 @@
 import SwiftUI
+import SwiftData
 
 struct OneDeviceView: View {
+    
+    @Environment(\.modelContext) private var modelContext
             
     @StateObject var game = Game()
+    @Query var query: [UserData]
 
     private var winnerBinding: Binding<Bool> {
         Binding {
@@ -168,10 +172,20 @@ struct OneDeviceView: View {
         }
         .alert(winMessage, isPresented: winnerBinding) {
             Button("REPLAY", role: .cancel) {
+
+                var userData = query.isEmpty ? UserData() : query[0]
+                print(userData.tableMatches)
+                if(game.winner == .friend) {
+                    userData.tableMatches.whiteWins += 1
+                } else {
+                    userData.tableMatches.blackWins += 1
+                }
+                modelContext.insert(userData)
+                try! modelContext.save()
+
                 game.restart()
             }
         }
-//        .alert(isPresented: , error: E?, actions: <#T##() -> A#>)
     }
 }
 
