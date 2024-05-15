@@ -3,6 +3,7 @@ import SwiftData
 
 struct OneDeviceView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) private var modelContext
             
     @StateObject var game = Game()
@@ -173,7 +174,7 @@ struct OneDeviceView: View {
         .alert(winMessage, isPresented: winnerBinding) {
             Button("REPLAY", role: .cancel) {
 
-                var userData = query.isEmpty ? UserData() : query[0]
+                let userData = query.isEmpty ? UserData() : query[0]
                 print(userData.tableMatches)
                 if(game.winner == .friend) {
                     userData.tableMatches.whiteWins += 1
@@ -184,6 +185,20 @@ struct OneDeviceView: View {
                 try! modelContext.save()
 
                 game.restart()
+            }
+            Button("Back to Menu") {
+                let userData = query.isEmpty ? UserData() : query[0]
+                print(userData.tableMatches)
+                if(game.winner == .friend) {
+                    userData.tableMatches.whiteWins += 1
+                } else {
+                    userData.tableMatches.blackWins += 1
+                }
+                modelContext.insert(userData)
+                try! modelContext.save()
+            action: do {
+                    presentationMode.wrappedValue.dismiss()
+                }
             }
         }
     }

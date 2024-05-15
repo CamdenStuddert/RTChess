@@ -37,13 +37,13 @@ struct HomeView: View {
                             .background(RoundedRectangle(cornerRadius: 10).fill(color))
                     }
                     
-                    NavigationLink(destination: SettingsView()) {
-                        Text("Settings")
-                            .foregroundColor(.white)
-                            .font(.system(size: 40))
-                            .padding()
-                            .background(RoundedRectangle(cornerRadius: 10).fill(color))
-                    }
+//                    NavigationLink(destination: SettingsView()) {
+//                        Text("Settings")
+//                            .foregroundColor(.white)
+//                            .font(.system(size: 40))
+//                            .padding()
+//                            .background(RoundedRectangle(cornerRadius: 10).fill(color))
+//                    }
                 }
             }
         }

@@ -3,7 +3,7 @@ import QuartzCore
 
 class Game: ObservableObject {
     
-    static var mpRegen = 120
+    static var mpRegen = 180
     static var maxMp = 15
     static var minMp = 0
     
