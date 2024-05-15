@@ -14,6 +14,7 @@ class Game: ObservableObject {
     @Published var board: Board
     @Published var whiteSelected: UUID? = nil
     @Published var blackSelected: UUID? = nil
+    @Published var winner: Team? = nil
 
     var updater: CADisplayLink = CADisplayLink()
     
@@ -101,6 +102,18 @@ class Game: ObservableObject {
         
     }
     
+    func restart() {
+        let model = Game()
+        ticks = 0
+        
+        whiteMp = model.whiteMp
+        blackMp = model.blackMp
+        board = model.board
+        whiteSelected = model.whiteSelected
+        blackSelected = model.blackSelected
+        winner = model.winner
+    }
+    
     @objc
     func update() {
         ticks += 1
@@ -163,11 +176,11 @@ class Game: ObservableObject {
         
         if let delete {
             if board.foeKingId == board.pieces[delete].id {
-                print("White Wins!")
-                Board.winner = Team.friend
+//                print("White Wins!")
+                winner = Team.friend
             } else if board.friendKingId == board.pieces[delete].id {
-                print("Black Wins!")
-                Board.winner = Team.foe
+//                print("Black Wins!")
+                winner = Team.foe
             }
             board.pieces.remove(at: delete)
         }

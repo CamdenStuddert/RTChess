@@ -10,7 +10,6 @@ struct Board {
     static var pieceSize: Double {
         cellSize * pieceScale
     }
-    static var winner: Team? = nil
     
     static func getLocation(at position: CGPoint) -> (x: Int, y: Int) {
         (x: Int(floor(position.x / Board.cellSize)), y: Int(floor(position.y / Board.cellSize)))

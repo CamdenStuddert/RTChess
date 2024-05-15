@@ -15,7 +15,8 @@ struct Knight: Piece {
     }
     
     func getAvailableMoves(board: Board) -> [Move] {
-        
+        if target != nil {return []}
+
         let location = Board.getLocation(at: position)
         var moves: [Move] = []
         let possibleMoves: [Move] = [

@@ -1,9 +1,22 @@
 import SwiftUI
 
 struct OneDeviceView: View {
-    
-    @EnvironmentObject var game: Game
-    
+            
+    @StateObject var game = Game()
+
+    private var winnerBinding: Binding<Bool> {
+        Binding {
+            game.winner != nil
+        } set: { value in
+            if !value {
+                game.winner = nil
+            }
+        }
+    }
+    private var winMessage: String {
+        return game.winner == .friend ? "White Wins!" : "Black Wins!"
+    }
+
     var body: some View {
         GeometryReader { geo in
             
@@ -153,7 +166,12 @@ struct OneDeviceView: View {
                 .padding(.bottom, 16)
             }
         }
-        
+        .alert(winMessage, isPresented: winnerBinding) {
+            Button("REPLAY", role: .cancel) {
+                game.restart()
+            }
+        }
+//        .alert(isPresented: , error: E?, actions: <#T##() -> A#>)
     }
 }
 
