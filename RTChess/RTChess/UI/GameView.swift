@@ -2,8 +2,6 @@ import SwiftUI
 
 struct GameView: View {
     
-//    @Environment(\.modelContext) private var context
-//    @EnvironmentObject var game: Game
     @StateObject var game = Game()
 
     var body: some View {

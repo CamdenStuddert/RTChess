@@ -47,7 +47,7 @@ class Game: ObservableObject {
                 if (board.pieces[index].team == .friend && whiteMp >= cost) ||
                     (board.pieces[index].team == .foe && blackMp >= cost){
                     switch move {
-                    case let .attack(x: _, y: _, piece: piece):
+                    case .attack(x: _, y: _, piece: _):
                         board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
                     case .available(x: _, y: _):
                         board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
@@ -71,7 +71,7 @@ class Game: ObservableObject {
             if let move = board.pieces[index].getAvailableMoves(board: board).first(where: { $0.x == tappedLocation.x && $0.y == tappedLocation.y }) {
                 if (board.pieces[index].team == .foe && blackMp >= cost){
                     switch move {
-                    case let .attack(x: _, y: _, piece: piece):
+                    case .attack(x: _, y: _, piece: _):
                         board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
                     case .available(x: _, y: _):
                         board.pieces[index].target = CGPoint(x: Double(tappedLocation.x) * Board.cellSize, y: Double(tappedLocation.y) * Board.cellSize)
@@ -176,10 +176,8 @@ class Game: ObservableObject {
         
         if let delete {
             if board.foeKingId == board.pieces[delete].id {
-//                print("White Wins!")
                 winner = Team.friend
             } else if board.friendKingId == board.pieces[delete].id {
-//                print("Black Wins!")
                 winner = Team.foe
             }
             board.pieces.remove(at: delete)

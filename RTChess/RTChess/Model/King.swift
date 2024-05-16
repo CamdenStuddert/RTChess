@@ -47,7 +47,7 @@ struct King: Piece {
     
     func getAvailableMoves(board: Board) -> [Move] {
         var enemyMoves: [Move] = []
-        var enemyPieces = team == .friend ? board.foePieces : board.friendPieces
+        let enemyPieces = team == .friend ? board.foePieces : board.friendPieces
         for enemyPiece in enemyPieces {
             if enemyPiece is King {
                 enemyMoves.append(contentsOf: King.getKingMoves(board: board, position: enemyPiece.position, team: enemyPiece.team))

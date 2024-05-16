@@ -32,7 +32,6 @@
 		6282F6C52BEDB05D005A6530 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282F6C42BEDB05D005A6530 /* Build.swift */; };
 		6282F7012BF1811D005A6530 /* WebSocketUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282F7002BF1811D005A6530 /* WebSocketUtility.swift */; };
 		6282F7032BF18149005A6530 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282F7022BF18149005A6530 /* GameData.swift */; };
-		6282F7052BF44247005A6530 /* SwiftDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282F7042BF44247005A6530 /* SwiftDataUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +61,6 @@
 		6282F6C42BEDB05D005A6530 /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		6282F7002BF1811D005A6530 /* WebSocketUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketUtility.swift; sourceTree = "<group>"; };
 		6282F7022BF18149005A6530 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
-		6282F7042BF44247005A6530 /* SwiftDataUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +166,6 @@
 				6282F7002BF1811D005A6530 /* WebSocketUtility.swift */,
 				6282F7022BF18149005A6530 /* GameData.swift */,
 				042430FC2BF41DB20086BD70 /* UserData.swift */,
-				6282F7042BF44247005A6530 /* SwiftDataUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -249,7 +246,6 @@
 				0486FBB82BE02BAB00A36FF5 /* SettingsView.swift in Sources */,
 				6230C41C2BD893CB005509BD /* Team.swift in Sources */,
 				0486FBA62BD8847C00A36FF5 /* GameView.swift in Sources */,
-				6282F7052BF44247005A6530 /* SwiftDataUtility.swift in Sources */,
 				0481DC3B2BF2D14F007D2160 /* OneDeviceView.swift in Sources */,
 				0486FBB42BE008A000A36FF5 /* HomeView.swift in Sources */,
 				6226CC9D2BD890010090EB21 /* Rook.swift in Sources */,
