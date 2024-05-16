@@ -175,7 +175,6 @@ struct OneDeviceView: View {
             Button("REPLAY", role: .cancel) {
 
                 let userData = query.isEmpty ? UserData() : query[0]
-                print(userData.tableMatches)
                 if(game.winner == .friend) {
                     userData.tableMatches.whiteWins += 1
                 } else {
@@ -188,7 +187,6 @@ struct OneDeviceView: View {
             }
             Button("Back to Menu") {
                 let userData = query.isEmpty ? UserData() : query[0]
-                print(userData.tableMatches)
                 if(game.winner == .friend) {
                     userData.tableMatches.whiteWins += 1
                 } else {
